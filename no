@@ -1,0 +1,485 @@
+if not game:IsLoaded() then 
+game.Loaded:Wait() 
+end wait(2)
+
+local ScreenGui = Instance.new("ScreenGui")
+local main = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local wingremove = Instance.new("TextButton")
+local fastrun = Instance.new("TextButton")
+local nofog = Instance.new("TextButton")
+local noslow = Instance.new("TextButton")
+local antiglitch = Instance.new("TextButton")
+local infyeild = Instance.new("TextButton")
+local topres = Instance.new("TextButton")
+local noaura = Instance.new("TextButton")
+local nolevel = Instance.new("TextButton")
+local TextLabel_2 = Instance.new("TextLabel")
+local namektp = Instance.new("TextButton")
+local spacetp = Instance.new("TextButton")
+local futuretp = Instance.new("TextButton")
+local secrettp = Instance.new("TextButton")
+local othertp = Instance.new("TextButton")
+local zarotp = Instance.new("TextButton")
+local earthtp = Instance.new("TextButton")
+local queuetp = Instance.new("TextButton")
+local none = Instance.new("TextButton")
+local TextButton = Instance.new("TextButton")
+
+--Properties:
+
+ScreenGui.Parent = game.CoreGui
+
+main.Name = "main"
+main.Parent = ScreenGui
+main.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
+main.Position = UDim2.new(0.665950239, 0, 0.0252525248, 0)
+main.Size = UDim2.new(0, 227, 0, 555)
+main.Visible = false
+main.Active = true
+main.Draggable = true
+
+TextLabel.Parent = main
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 0, 4)
+TextLabel.Size = UDim2.new(0, 227, 0, 42)
+TextLabel.Font = Enum.Font.Cartoon
+TextLabel.Text = "Darklord | GUI"
+TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.TextSize = 30.000
+
+wingremove.Name = "wingremove"
+wingremove.Parent = main
+wingremove.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+wingremove.Position = UDim2.new(0.0660792962, 0, 0.109515265, 0)
+wingremove.Size = UDim2.new(0, 53, 0, 50)
+wingremove.Font = Enum.Font.SourceSans
+wingremove.Text = "WingRe"
+wingremove.TextColor3 = Color3.fromRGB(0, 0, 0)
+wingremove.TextSize = 14.000
+wingremove.MouseButton1Down:connect(function()
+	getgenv().enabler = true  --Set to true to enable, false to disable.
+
+	--[Script Starts Here]:--
+
+	if (not game:IsLoaded()) then
+		game.Loaded:Wait();
+	end;
+	local lplr=game:GetService('Players').LocalPlayer;
+	local char=game:GetService('Workspace'):waitForChild('Live'):waitForChild(lplr.Name);
+	function xd(char)
+		lmfao=false;
+		if (getgenv().enabler==false) then
+			ran:Disconnect();
+		else
+			repeat wait();
+				if (char:findFirstChild('RebirthWings')) then
+					x=char.HumanoidRootPart.CFrame.X;
+					y=char.HumanoidRootPart.CFrame.Y;
+					z=char.HumanoidRootPart.CFrame.Z;
+					char.HumanoidRootPart.CFrame=CFrame.new(x,y,z) + Vector3.new(0,-200,0);
+					char.RebirthWings.Handle.AccessoryWeld:Destroy();
+					char.HumanoidRootPart.CFrame=CFrame.new(x,y,z);
+					x,y,z=nil;
+					char.RebirthWings:Destroy();
+					lmfao=true;
+				end;
+				if (char:findFirstChild('RealHalo')) then
+					x=char.HumanoidRootPart.CFrame.X;
+					y=char.HumanoidRootPart.CFrame.Y;
+					z=char.HumanoidRootPart.CFrame.Z;
+					char.HumanoidRootPart.CFrame=CFrame.new(x,y,z) + Vector3.new(0,-200,0);
+					char.RealHalo.Handle.AccessoryWeld:Destroy();
+					char.HumanoidRootPart.CFrame=CFrame.new(x,y,z);
+					x,y,z=nil;
+					char.RealHalo:Destroy();
+					lmfao=true;
+				end;
+			until lmfao==true or getgenv().enabler==false;
+		end;
+	end;
+	repeat wait()
+		for i,v in pairs(char:getChildren()) do
+			if v:IsA('Model') then
+				lmao=true;
+				xd(char);
+				break;
+			end;
+		end;
+	until lmao==true;
+	lmao=false;
+	lplr.CharacterRemoving:connect(function() lmfao=true;end);
+	lplr.CharacterAdded:connect(function(v)
+		char=v;
+		xd(char);
+		print('reconnected');
+	end);
+end)
+
+fastrun.Name = "fastrun"
+fastrun.Parent = main
+fastrun.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+fastrun.Position = UDim2.new(0.383259892, 0, 0.109515265, 0)
+fastrun.Size = UDim2.new(0, 53, 0, 50)
+fastrun.Font = Enum.Font.SourceSans
+fastrun.Text = "Speed"
+fastrun.TextColor3 = Color3.fromRGB(0, 0, 0)
+fastrun.TextSize = 14.000
+fastrun.MouseButton1Down:connect(function()
+	if not game:IsLoaded() then 
+		game.Loaded:Wait() 
+	end 
+	wait(1)
+	game:GetService("StarterGui"):SetCore("SendNotification", {
+		Title = "Your Mother";
+		Text = "Fucked";
+	})
+	while wait() do
+		function setSpeed(walkspeedSet)
+
+			local plr = game:GetService"Players".LocalPlayer
+			local serverTraits = plr.Backpack:WaitForChild'ServerTraits'
+
+			for i,v in next, getconnections(serverTraits.Input.OnClientEvent) do
+				local speed = (350*(walkspeedSet/44))-350
+				v:Fire({speed})
+				break
+			end
+		end
+		setSpeed(1750)
+		wait()
+		plr = game.Players.LocalPlayer
+		hum = plr.Character.HumanoidRootPart
+		mouse = plr:GetMouse()
+
+		mouse.KeyDown:connect(function(key)
+			if key == "u" then
+				if mouse.Target then
+					game.Players.LocalPlayer.Backpack.ServerTraits.Vanish:FireServer()
+					wait(.25)
+					hum.CFrame = CFrame.new(mouse.Hit.x, mouse.Hit.y + 5, mouse.Hit.z)
+					wait(.25)
+				end
+			end
+		end)
+	end
+end)
+
+nofog.Name = "nofog"
+nofog.Parent = main
+nofog.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+nofog.Position = UDim2.new(0.704845726, 0, 0.109515265, 0)
+nofog.Size = UDim2.new(0, 53, 0, 50)
+nofog.Font = Enum.Font.SourceSans
+nofog.Text = "NoFog"
+nofog.TextColor3 = Color3.fromRGB(0, 0, 0)
+nofog.TextSize = 14.000
+nofog.MouseButton1Down:connect(function()
+	if not game:IsLoaded() then 
+		game.Loaded:Wait() 
+	end 
+	wait(1)
+	game:GetService("RunService").RenderStepped:connect(function()
+		game.Lighting.FogEnd = (99999999)
+	end)
+end)
+
+noslow.Name = "noslow"
+noslow.Parent = main
+noslow.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+noslow.Position = UDim2.new(0.0660792962, 0, 0.25314182, 0)
+noslow.Size = UDim2.new(0, 53, 0, 50)
+noslow.Font = Enum.Font.SourceSans
+noslow.Text = "NoSlow"
+noslow.TextColor3 = Color3.fromRGB(0, 0, 0)
+noslow.TextSize = 14.000
+noslow.MouseButton1Down:connect(function()
+	if not game:IsLoaded() then
+		game.Loaded:Wait(0.5)
+	end
+
+	while wait() do
+		for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+			if v.Name == "Justice Combination" then
+				local action = game.Players.LocalPlayer.Character:WaitForChild("Action")
+				if action then wait() action:Destroy() end end
+			if v.Name == "Action" then
+				v:Destroy()
+			end
+			if v.Name == "Attacking" then
+				v:Destroy()
+			end
+			if v.Name == "Using" then
+				v:Destroy()
+			end
+			if v.Name == "hyper" then
+				v:Destroy()
+			end
+			if v.Name == "Hyper" then
+				v:Destroy()
+			end
+			if v.Name == "heavy" then
+				v:Destroy()
+			end
+			if v.Name == "KiBlasted" then
+				v:Destroy()
+			end
+			if v.Name == "Tele" then
+				v:Destroy()
+			end
+			if v.Name == "tele" then
+				v:Destroy()
+			end
+			if v.Name == "Killed" then
+				v:Destroy()
+			end
+			if v.Name == "Slow" then
+				v:Destroy()
+			end
+			if v.Name == "Block" and v.Value == true then
+				v.Value = false
+			end
+		end
+	end
+end)
+
+antiglitch.Name = "antiglitch"
+antiglitch.Parent = main
+antiglitch.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+antiglitch.Position = UDim2.new(0.383259892, 0, 0.25314182, 0)
+antiglitch.Size = UDim2.new(0, 53, 0, 50)
+antiglitch.Font = Enum.Font.SourceSans
+antiglitch.Text = "AntiGlitch"
+antiglitch.TextColor3 = Color3.fromRGB(0, 0, 0)
+antiglitch.TextSize = 14.000
+antiglitch.MouseButton1Down:connect(function()
+	if not game:IsLoaded() then 
+		game.Loaded:Wait() 
+	end 
+	wait(1)
+	while wait() do
+		local Devil = game.Players.LocalPlayer
+		local Angel = game.Players.LocalPlayer.Character
+		local Guardian = Angel.LowerTorso:WaitForChild("BodyVelocity")
+		if Guardian then Guardian:Destroy()
+		end
+		while wait() do
+			local x = game.Players.LocalPlayer.Character.LowerTorso:WaitForChild("KnockBacked")
+			if x then x:Destroy()
+			end
+		end
+	end
+end)
+
+infyeild.Name = "infyeild"
+infyeild.Parent = main
+infyeild.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+infyeild.Position = UDim2.new(0.704845786, 0, 0.25314182, 0)
+infyeild.Size = UDim2.new(0, 53, 0, 50)
+infyeild.Font = Enum.Font.SourceSans
+infyeild.Text = "InfYeild"
+infyeild.TextColor3 = Color3.fromRGB(0, 0, 0)
+infyeild.TextSize = 14.000
+infyeild.MouseButton1Down:connect(function()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+
+topres.Name = "topres"
+topres.Parent = main
+topres.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+topres.Position = UDim2.new(0.0660792962, 0, 0.398563743, 0)
+topres.Size = UDim2.new(0, 53, 0, 50)
+topres.Font = Enum.Font.SourceSans
+topres.Text = "TopRes"
+topres.TextColor3 = Color3.fromRGB(0, 0, 0)
+topres.TextSize = 14.000
+topres.MouseButton1Down:connect(function()
+	Die = game.Players.LocalPlayer.Character
+	lplr = game:GetService("Players").LocalPlayer
+	game:GetService("RunService").RenderStepped:connect(function()
+		if Die.Humanoid.Health == 1 then
+			game:GetService("Players").LocalPlayer.Character.SuperAction:Destroy()
+			wait(0.8)
+			game:GetService("TweenService"):Create(lplr.Character.HumanoidRootPart, TweenInfo.new(0.5, Enum.EasingStyle.Linear), {CFrame = CFrame.new(100, 100, 100)}):Play()
+		end
+	end)
+end)
+
+noaura.Name = "noaura"
+noaura.Parent = main
+noaura.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+noaura.Position = UDim2.new(0.383259892, 0, 0.398563743, 0)
+noaura.Size = UDim2.new(0, 53, 0, 50)
+noaura.Font = Enum.Font.SourceSans
+noaura.Text = "NoAura"
+noaura.TextColor3 = Color3.fromRGB(0, 0, 0)
+noaura.TextSize = 14.000
+noaura.MouseButton1Down:connect(function()
+	local plr = game.Players.LocalPlayer
+	game.Workspace.Live[plr.Name].HumanoidRootPart["TempAura"]:Destroy()
+	wait()
+	local plr = game.Players.LocalPlayer
+	game.Workspace.Live[plr.Name].HumanoidRootPart["Lightning"]:Destroy()
+end)
+
+nolevel.Name = "nolevel"
+nolevel.Parent = main
+nolevel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+nolevel.Position = UDim2.new(0.704845786, 0, 0.398563743, 0)
+nolevel.Size = UDim2.new(0, 53, 0, 50)
+nolevel.Font = Enum.Font.SourceSans
+nolevel.Text = "NoLvl"
+nolevel.TextColor3 = Color3.fromRGB(0, 0, 0)
+nolevel.TextSize = 14.000
+nolevel.MouseButton1Down:connect(function()
+	if not game:IsLoaded() then
+		game.Loaded:Wait()
+	end
+	wait(0.5)
+	game.Players.LocalPlayer.Character:FindFirstChildOfClass("Model"):Destroy()
+end)
+
+TextLabel_2.Parent = main
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 0, 4)
+TextLabel_2.Position = UDim2.new(0, 0, 0.517055631, 0)
+TextLabel_2.Size = UDim2.new(0, 227, 0, 42)
+TextLabel_2.Font = Enum.Font.Cartoon
+TextLabel_2.Text = "Teleports"
+TextLabel_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_2.TextSize = 30.000
+
+namektp.Name = "namektp"
+namektp.Parent = main
+namektp.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+namektp.Position = UDim2.new(0.0660792962, 0, 0.630161583, 0)
+namektp.Size = UDim2.new(0, 53, 0, 50)
+namektp.Font = Enum.Font.SourceSans
+namektp.Text = "Namek"
+namektp.TextColor3 = Color3.fromRGB(0, 0, 0)
+namektp.TextSize = 14.000
+namektp.MouseButton1Down:connect(function()
+	game:GetService("TeleportService"):Teleport(882399924, game.Players.LocalPlayer)
+end)
+
+spacetp.Name = "spacetp"
+spacetp.Parent = main
+spacetp.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+spacetp.Position = UDim2.new(0.383259892, 0, 0.630161583, 0)
+spacetp.Size = UDim2.new(0, 53, 0, 50)
+spacetp.Font = Enum.Font.SourceSans
+spacetp.Text = "Space"
+spacetp.TextColor3 = Color3.fromRGB(0, 0, 0)
+spacetp.TextSize = 14.000
+spacetp.MouseButton1Down:connect(function()
+	game:GetService("TeleportService"):Teleport(478132461, game.Players.LocalPlayer)
+end)
+
+futuretp.Name = "futuretp"
+futuretp.Parent = main
+futuretp.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+futuretp.Position = UDim2.new(0.704845786, 0, 0.630161583, 0)
+futuretp.Size = UDim2.new(0, 53, 0, 50)
+futuretp.Font = Enum.Font.SourceSans
+futuretp.Text = "Future"
+futuretp.TextColor3 = Color3.fromRGB(0, 0, 0)
+futuretp.TextSize = 14.000
+futuretp.MouseButton1Down:connect(function()
+	game:GetService("TeleportService"):Teleport(569994010, game.Players.LocalPlayer)
+end)
+
+secrettp.Name = "secrettp"
+secrettp.Parent = main
+secrettp.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+secrettp.Position = UDim2.new(0.0660792962, 0, 0.773788154, 0)
+secrettp.Size = UDim2.new(0, 53, 0, 50)
+secrettp.Font = Enum.Font.SourceSans
+secrettp.Text = "Hell"
+secrettp.TextColor3 = Color3.fromRGB(0, 0, 0)
+secrettp.TextSize = 14.000
+secrettp.MouseButton1Down:connect(function()
+	game:GetService("TeleportService"):Teleport(2046990924, game.Players.LocalPlayer)
+end)
+
+othertp.Name = "othertp"
+othertp.Parent = main
+othertp.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+othertp.Position = UDim2.new(0.383259892, 0, 0.773788154, 0)
+othertp.Size = UDim2.new(0, 53, 0, 50)
+othertp.Font = Enum.Font.SourceSans
+othertp.Text = "Heaven"
+othertp.TextColor3 = Color3.fromRGB(0, 0, 0)
+othertp.TextSize = 14.000
+othertp.MouseButton1Down:connect(function()
+	game:GetService("TeleportService"):Teleport(3552157537, game.Players.LocalPlayer)
+end)
+
+zarotp.Name = "zarotp"
+zarotp.Parent = main
+zarotp.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+zarotp.Position = UDim2.new(0.704845786, 0, 0.773788154, 0)
+zarotp.Size = UDim2.new(0, 53, 0, 50)
+zarotp.Font = Enum.Font.SourceSans
+zarotp.Text = "Zaro"
+zarotp.TextColor3 = Color3.fromRGB(0, 0, 0)
+zarotp.TextSize = 14.000
+zarotp.MouseButton1Down:connect(function()
+	game:GetService("TeleportService"):Teleport(2651456105, game.Players.LocalPlayer)
+end)
+
+earthtp.Name = "earthtp"
+earthtp.Parent = main
+earthtp.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+earthtp.Position = UDim2.new(0.0660792962, 0, 0.910030007, 0)
+earthtp.Size = UDim2.new(0, 53, 0, 50)
+earthtp.Font = Enum.Font.SourceSans
+earthtp.Text = "Earth"
+earthtp.TextColor3 = Color3.fromRGB(0, 0, 0)
+earthtp.TextSize = 14.000
+earthtp.MouseButton1Down:connect(function()
+	game:GetService("TeleportService"):Teleport(536102540, game.Players.LocalPlayer)
+end)
+
+queuetp.Name = "queuetp"
+queuetp.Parent = main
+queuetp.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+queuetp.Position = UDim2.new(0.383259892, 0, 0.910030007, 0)
+queuetp.Size = UDim2.new(0, 53, 0, 50)
+queuetp.Font = Enum.Font.SourceSans
+queuetp.Text = "Queue"
+queuetp.TextColor3 = Color3.fromRGB(0, 0, 0)
+queuetp.TextSize = 14.000
+queuetp.MouseButton1Down:connect(function()
+	wait(1.3)
+	game:GetService("TeleportService"):Teleport(3565304751, game.Players.LocalPlayer)
+end)
+
+none.Name = "none"
+none.Parent = main
+none.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+none.Position = UDim2.new(0.704845786, 0, 0.910030007, 0)
+none.Size = UDim2.new(0, 53, 0, 50)
+none.Font = Enum.Font.SourceSans
+none.Text = "None"
+none.TextColor3 = Color3.fromRGB(0, 0, 0)
+none.TextSize = 14.000
+
+TextButton.Parent = ScreenGui
+TextButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.Position = UDim2.new(0.901866555, 0, 0, 0)
+TextButton.Size = UDim2.new(0, 99, 0, 60)
+TextButton.Text = "Gui"
+TextButton.TextColor3 = Color3.fromRGB(255, 0, 4)
+TextButton.TextSize = 14.000
+TextButton.TextStrokeColor3 = Color3.fromRGB(255, 0, 4)
+TextButton.Active = true
+TextButton.Draggable = true
+
+-- Scripts:
+
+local function VQCSXH_fake_script() -- TextButton.LocalScript 
+	local script = Instance.new('LocalScript', TextButton)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		script.Parent.Parent.main.Visible = not script.Parent.Parent.main.Visible
+	end)
+end
+coroutine.wrap(VQCSXH_fake_script)()
